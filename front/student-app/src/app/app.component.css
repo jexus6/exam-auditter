@@ -1,0 +1,25 @@
+h1{
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+ul {
+    list-style: none;
+    border-bottom: 1px solid #1eaedb;
+}
+
+li {
+    display: inline-block;
+}
+
+a {
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+
+.selecc {
+    border: 1px solid #1eaedb;
+    border-bottom: 1px solid white;
+    color: blue;
+}

@@ -107,10 +107,9 @@ dist
 .vscode-test
 
 artifacts/channel/mychannel.tx
-genesis.block
 artifacts/channel/Org1MSPanchors.tx
 artifacts/channel/Org2MSPanchors.tx
-artifacts/channel/crypto-config
+artifacts/channel/crypto-config/
 fabric-client-kv-org1
 /package-lock.json
 crypto/*
@@ -124,10 +123,7 @@ crypto/fabric-client-kv-org1
 fabcar.tar.gz
 artifacts/src/github.com/fabcar_contract_api/go/vendor
 artifacts/src/github.com/fabcar_contract_api/go/go.sum
-api-2.0/wallet
-api-1.4/crypto/org1
-api-1.4/fabric-client-kv-org1
-api-1.4/node_modules
+back/wallet
 channel-artifacts/mychannel.block
 addOrg3/crypto-config/peerOrganizations/org3.example.com
 original_config.pb
@@ -147,13 +143,14 @@ config_update_in_envelope.pb
 config.pb
 org4consenter.json
 addOrg3/scripts/channel-artifacts/mychannel.block
-api-2.0/org1-wallet
-api-2.0/org2-wallet
+back/org1-wallet
+back/org2-wallet
 artifacts/channel/create-certificate-with-ca/crypto-config-ca
 artifacts/channel/create-certificate-with-ca/fabric-ca
-artifacts/channel/crypto-config_1
+artifacts/channel
+artifacts/channel/crypto-config
 artifacts/channel/crypto-config_cryptogen
-api-2.0/app/data/transactionData.block
-api-2.0/app/data/transaction.json
-api-2.0/app/data/block.json
-api-2.0/app/data/blockData.block
+back/app/data/transactionData.block
+back/app/data/transaction.json
+back/app/data/block.json
+back/app/data/blockData.block

@@ -10,20 +10,20 @@
 <form [formGroup]="myForm" (ngSubmit)="submit()">
   
   <div class="form-group">
-      <label for="name">Name</label>
+      <label for="name">Nombre</label>
       <input 
           formControlName="name"
           id="name" 
           type="text" 
           class="form-control">
       <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
-          <div *ngIf="f.name.errors.required">Name is required.</div>
-          <div *ngIf="f.name.errors.minlength">Name should be 3 character.</div>
+          <div *ngIf="f.name.errors.required">Es necesario el nombre del alumno.</div>
+          <div *ngIf="f.name.errors.minlength">Mínimo 3 caracteres.</div>
       </div>
   </div>
     
   <div class="form-group">
-      <label for="file">File</label>
+      <label for="file">Examen</label>
       <input 
           formControlName="file"
           id="file" 
@@ -31,9 +31,10 @@
           class="form-control"
           (change)="onFileChange($event)">
       <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
-          <div *ngIf="f.file.errors.required">File is required.</div>
+          <div *ngIf="f.file.errors.required">Es necesario seleccionar el examen.</div>
       </div>
   </div>
         
-  <button class="btn btn-primary" type="submit">Submit</button>
+  <button class="btn btn-primary" type="submit">Registrar</button>
+
 </form>

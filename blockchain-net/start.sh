@@ -10,3 +10,7 @@ sleep 5
 sleep 2
 
 ./deployChaincode.sh
+
+sleep 20
+
+docker-compose -f ./explorer/docker-compose.yaml up -d 

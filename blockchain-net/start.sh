@@ -9,7 +9,7 @@ sleep 5
 
 sleep 2
 
-./deployChaincode.sh
+./deployChaincodeExam.sh
 
 sleep 20
 

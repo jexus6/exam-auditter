@@ -1,3 +1,2 @@
 Installed chaincodes on peer:
-Package ID: fabcar_1:5e62720885230bdfa16ee6c645dd98e98a5c28a8f4b2d1401770ade1f23389de, Label: fabcar_1
-Package ID: exam_auditter_1:75560527a3c4c1a2bc8a7a126c2e5b839fc40f3928ad5ce9bbd7f2b77e53e02f, Label: exam_auditter_1
+Package ID: exam_auditter_1:63d910ec4b57a574e60192522ad6159120f27e898078905dbbd197082744efd8, Label: exam_auditter_1

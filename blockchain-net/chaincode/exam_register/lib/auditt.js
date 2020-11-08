@@ -25,8 +25,8 @@ class ExamContract extends Contract {
    */
   async createExam(
     ctx,
-    name,
     hash,
+    name,
     subject,
     timeStamp,
     signature
@@ -35,7 +35,6 @@ class ExamContract extends Contract {
     let doc = {};
     doc.docType = 'exam';
     doc.name = name;
-    doc.owner = owner;
     doc.subject = subject;
     doc.hash = hash;
     doc.signature = signature;

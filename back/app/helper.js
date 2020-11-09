@@ -9,11 +9,11 @@ const util = require('util');
 
 const getCCP = async (org) => {
     let ccpPath;
-    if (org == "Org1") {
-        ccpPath = path.resolve(__dirname, '..', 'config', 'connection-org1.json');
+    if (org == "Udima") {
+        ccpPath = path.resolve(__dirname, '..', 'config', 'connection-udima.json');
 
-    } else if (org == "Org2") {
-        ccpPath = path.resolve(__dirname, '..', 'config', 'connection-org2.json');
+    } else if (org == "Ministerio") {
+        ccpPath = path.resolve(__dirname, '..', 'config', 'connection-ministerio.json');
     } else
         return null
     const ccpJSON = fs.readFileSync(ccpPath, 'utf8')
@@ -23,11 +23,11 @@ const getCCP = async (org) => {
 
 const getCaUrl = async (org, ccp) => {
     let caURL;
-    if (org == "Org1") {
-        caURL = ccp.certificateAuthorities['ca.org1.example.com'].url;
+    if (org == "Udima") {
+        caURL = ccp.certificateAuthorities['ca.udima.example.com'].url;
 
-    } else if (org == "Org2") {
-        caURL = ccp.certificateAuthorities['ca.org2.example.com'].url;
+    } else if (org == "Ministerio") {
+        caURL = ccp.certificateAuthorities['ca.ministerio.example.com'].url;
     } else
         return null
     return caURL
@@ -36,11 +36,11 @@ const getCaUrl = async (org, ccp) => {
 
 const getWalletPath = async (org) => {
     let walletPath;
-    if (org == "Org1") {
-        walletPath = path.join(process.cwd(), 'org1-wallet');
+    if (org == "Udima") {
+        walletPath = path.join(process.cwd(), 'udima-wallet');
 
-    } else if (org == "Org2") {
-        walletPath = path.join(process.cwd(), 'org2-wallet');
+    } else if (org == "Ministerio") {
+        walletPath = path.join(process.cwd(), 'ministerio-wallet');
     } else
         return null
     return walletPath
@@ -49,7 +49,7 @@ const getWalletPath = async (org) => {
 
 
 const getAffiliation = async (org) => {
-    return org == "Org1" ? 'org1.department1' : 'org2.department1'
+    return org == "Udima" ? 'udima.department1' : 'ministerio.department1'
 }
 
 const getRegisteredUser = async (username, userOrg, isJson) => {
@@ -88,7 +88,7 @@ const getRegisteredUser = async (username, userOrg, isJson) => {
     try {
         // Register the user, enroll the user, and import the new identity into the wallet.
         secret = await ca.register({ affiliation: await getAffiliation(userOrg), enrollmentID: username, role: 'client' }, adminUser);
-        // const secret = await ca.register({ affiliation: 'org1.department1', enrollmentID: username, role: 'client', attrs: [{ name: 'role', value: 'approver', ecert: true }] }, adminUser);
+        // const secret = await ca.register({ affiliation: 'udima.department1', enrollmentID: username, role: 'client', attrs: [{ name: 'role', value: 'approver', ecert: true }] }, adminUser);
 
     } catch (error) {
         return error.message
@@ -98,22 +98,22 @@ const getRegisteredUser = async (username, userOrg, isJson) => {
     // const enrollment = await ca.enroll({ enrollmentID: username, enrollmentSecret: secret, attr_reqs: [{ name: 'role', optional: false }] });
 
     let x509Identity;
-    if (userOrg == "Org1") {
+    if (userOrg == "Udima") {
         x509Identity = {
             credentials: {
                 certificate: enrollment.certificate,
                 privateKey: enrollment.key.toBytes(),
             },
-            mspId: 'Org1MSP',
+            mspId: 'UdimaMSP',
             type: 'X.509',
         };
-    } else if (userOrg == "Org2") {
+    } else if (userOrg == "Ministerio") {
         x509Identity = {
             credentials: {
                 certificate: enrollment.certificate,
                 privateKey: enrollment.key.toBytes(),
             },
-            mspId: 'Org2MSP',
+            mspId: 'MinisterioMSP',
             type: 'X.509',
         };
     }
@@ -144,11 +144,11 @@ const isUserRegistered =async  (username, userOrg) => {
 
 const getCaInfo = async (org, ccp) => {
     let caInfo
-    if (org == "Org1") {
-        caInfo = ccp.certificateAuthorities['ca.org1.example.com'];
+    if (org == "Udima") {
+        caInfo = ccp.certificateAuthorities['ca.udima.example.com'];
 
-    } else if (org == "Org2") {
-        caInfo = ccp.certificateAuthorities['ca.org2.example.com'];
+    } else if (org == "Ministerio") {
+        caInfo = ccp.certificateAuthorities['ca.ministerio.example.com'];
     } else
         return null
     return caInfo
@@ -161,7 +161,7 @@ const enrollAdmin = async (org, ccp) => {
 
     try {
 
-        const caInfo = await getCaInfo(org, ccp) //ccp.certificateAuthorities['ca.org1.example.com'];
+        const caInfo = await getCaInfo(org, ccp) //ccp.certificateAuthorities['ca.udima.example.com'];
         const caTLSCACerts = caInfo.tlsCACerts.pem;
         const ca = new FabricCAServices(caInfo.url, { trustedRoots: caTLSCACerts, verify: false }, caInfo.caName);
 
@@ -180,22 +180,22 @@ const enrollAdmin = async (org, ccp) => {
         // Enroll the admin user, and import the new identity into the wallet.
         const enrollment = await ca.enroll({ enrollmentID: 'admin', enrollmentSecret: 'adminpw' });
         let x509Identity;
-        if (org == "Org1") {
+        if (org == "Udima") {
             x509Identity = {
                 credentials: {
                     certificate: enrollment.certificate,
                     privateKey: enrollment.key.toBytes(),
                 },
-                mspId: 'Org1MSP',
+                mspId: 'UdimaMSP',
                 type: 'X.509',
             };
-        } else if (org == "Org2") {
+        } else if (org == "Ministerio") {
             x509Identity = {
                 credentials: {
                     certificate: enrollment.certificate,
                     privateKey: enrollment.key.toBytes(),
                 },
-                mspId: 'Org2MSP',
+                mspId: 'MinisterioMSP',
                 type: 'X.509',
             };
         }

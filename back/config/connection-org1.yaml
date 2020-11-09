@@ -1,22 +1,22 @@
 ---
-name: first-network-org1
+name: first-network-udima
 version: 1.0.0
 client:
-  organization: Org1
+  organization: Udima
   connection:
     timeout:
       peer:
         endorser: '300'
 organizations:
-  Org1:
-    mspid: Org1MSP
+  Udima:
+    mspid: UdimaMSP
     peers:
-    - peer0.org1.example.com
-    - peer1.org1.example.com
+    - peer0.udima.example.com
+    - peer1.udima.example.com
     certificateAuthorities:
-    - ca.org1.example.com
+    - ca.udima.example.com
 peers:
-  peer0.org1.example.com:
+  peer0.udima.example.com:
     url: grpcs://localhost:7051
     tlsCACerts:
       pem: |
@@ -37,9 +37,9 @@ peers:
         -----END CERTIFICATE-----
         
     grpcOptions:
-      ssl-target-name-override: peer0.org1.example.com
-      hostnameOverride: peer0.org1.example.com
-  peer1.org1.example.com:
+      ssl-target-name-override: peer0.udima.example.com
+      hostnameOverride: peer0.udima.example.com
+  peer1.udima.example.com:
     url: grpcs://localhost:8051
     tlsCACerts:
       pem: |
@@ -60,12 +60,12 @@ peers:
         -----END CERTIFICATE-----
         
     grpcOptions:
-      ssl-target-name-override: peer1.org1.example.com
-      hostnameOverride: peer1.org1.example.com
+      ssl-target-name-override: peer1.udima.example.com
+      hostnameOverride: peer1.udima.example.com
 certificateAuthorities:
-  ca.org1.example.com:
+  ca.udima.example.com:
     url: https://localhost:7054
-    caName: ca-org1
+    caName: ca-udima
     tlsCACerts:
       pem: |
         -----BEGIN CERTIFICATE-----

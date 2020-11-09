@@ -16,7 +16,7 @@ const createPostData = async (pk, data) => {
 	// console.log("Inside createPostData: JSON DATA", JSON.stringify(data))
 	return {
 		fcn: "CreateSampleData",
-		peers: ["peer0.org1.example.com", "peer0.org2.example.com"],
+		peers: ["peer0.udima.example.com", "peer0.ministerio.example.com"],
 		chaincodeName: "test_cc",
 		channelName: "mychannel",
 		args: [JSON.stringify(data), pk]

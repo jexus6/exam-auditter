@@ -9,7 +9,7 @@
                                 "groups": {
                                     "Application": {
                                         "groups": {
-                                            "Org1MSP": {
+                                            "UdimaMSP": {
                                                 "groups": {},
                                                 "mod_policy": "Admins",
                                                 "policies": {
@@ -21,7 +21,7 @@
                                                                 "identities": [
                                                                     {
                                                                         "principal": {
-                                                                            "msp_identifier": "Org1MSP",
+                                                                            "msp_identifier": "UdimaMSP",
                                                                             "role": "ADMIN"
                                                                         },
                                                                         "principal_classification": "ROLE"
@@ -50,7 +50,7 @@
                                                                 "identities": [
                                                                     {
                                                                         "principal": {
-                                                                            "msp_identifier": "Org1MSP",
+                                                                            "msp_identifier": "UdimaMSP",
                                                                             "role": "PEER"
                                                                         },
                                                                         "principal_classification": "ROLE"
@@ -79,21 +79,21 @@
                                                                 "identities": [
                                                                     {
                                                                         "principal": {
-                                                                            "msp_identifier": "Org1MSP",
+                                                                            "msp_identifier": "UdimaMSP",
                                                                             "role": "ADMIN"
                                                                         },
                                                                         "principal_classification": "ROLE"
                                                                     },
                                                                     {
                                                                         "principal": {
-                                                                            "msp_identifier": "Org1MSP",
+                                                                            "msp_identifier": "UdimaMSP",
                                                                             "role": "PEER"
                                                                         },
                                                                         "principal_classification": "ROLE"
                                                                     },
                                                                     {
                                                                         "principal": {
-                                                                            "msp_identifier": "Org1MSP",
+                                                                            "msp_identifier": "UdimaMSP",
                                                                             "role": "CLIENT"
                                                                         },
                                                                         "principal_classification": "ROLE"
@@ -128,14 +128,14 @@
                                                                 "identities": [
                                                                     {
                                                                         "principal": {
-                                                                            "msp_identifier": "Org1MSP",
+                                                                            "msp_identifier": "UdimaMSP",
                                                                             "role": "ADMIN"
                                                                         },
                                                                         "principal_classification": "ROLE"
                                                                     },
                                                                     {
                                                                         "principal": {
-                                                                            "msp_identifier": "Org1MSP",
+                                                                            "msp_identifier": "UdimaMSP",
                                                                             "role": "CLIENT"
                                                                         },
                                                                         "principal_classification": "ROLE"
@@ -190,7 +190,7 @@
                                                                     }
                                                                 },
                                                                 "intermediate_certs": [],
-                                                                "name": "Org1MSP",
+                                                                "name": "UdimaMSP",
                                                                 "organizational_unit_identifiers": [],
                                                                 "revocation_list": [],
                                                                 "root_certs": [
@@ -209,7 +209,7 @@
                                                 },
                                                 "version": "0"
                                             },
-                                            "Org2MSP": {
+                                            "MinisterioMSP": {
                                                 "groups": {},
                                                 "mod_policy": "Admins",
                                                 "policies": {
@@ -221,7 +221,7 @@
                                                                 "identities": [
                                                                     {
                                                                         "principal": {
-                                                                            "msp_identifier": "Org2MSP",
+                                                                            "msp_identifier": "MinisterioMSP",
                                                                             "role": "ADMIN"
                                                                         },
                                                                         "principal_classification": "ROLE"
@@ -250,7 +250,7 @@
                                                                 "identities": [
                                                                     {
                                                                         "principal": {
-                                                                            "msp_identifier": "Org2MSP",
+                                                                            "msp_identifier": "MinisterioMSP",
                                                                             "role": "PEER"
                                                                         },
                                                                         "principal_classification": "ROLE"
@@ -279,21 +279,21 @@
                                                                 "identities": [
                                                                     {
                                                                         "principal": {
-                                                                            "msp_identifier": "Org2MSP",
+                                                                            "msp_identifier": "MinisterioMSP",
                                                                             "role": "ADMIN"
                                                                         },
                                                                         "principal_classification": "ROLE"
                                                                     },
                                                                     {
                                                                         "principal": {
-                                                                            "msp_identifier": "Org2MSP",
+                                                                            "msp_identifier": "MinisterioMSP",
                                                                             "role": "PEER"
                                                                         },
                                                                         "principal_classification": "ROLE"
                                                                     },
                                                                     {
                                                                         "principal": {
-                                                                            "msp_identifier": "Org2MSP",
+                                                                            "msp_identifier": "MinisterioMSP",
                                                                             "role": "CLIENT"
                                                                         },
                                                                         "principal_classification": "ROLE"
@@ -328,14 +328,14 @@
                                                                 "identities": [
                                                                     {
                                                                         "principal": {
-                                                                            "msp_identifier": "Org2MSP",
+                                                                            "msp_identifier": "MinisterioMSP",
                                                                             "role": "ADMIN"
                                                                         },
                                                                         "principal_classification": "ROLE"
                                                                     },
                                                                     {
                                                                         "principal": {
-                                                                            "msp_identifier": "Org2MSP",
+                                                                            "msp_identifier": "MinisterioMSP",
                                                                             "role": "CLIENT"
                                                                         },
                                                                         "principal_classification": "ROLE"
@@ -390,7 +390,7 @@
                                                                     }
                                                                 },
                                                                 "intermediate_certs": [],
-                                                                "name": "Org2MSP",
+                                                                "name": "MinisterioMSP",
                                                                 "organizational_unit_identifiers": [],
                                                                 "revocation_list": [],
                                                                 "root_certs": [
@@ -837,14 +837,14 @@
                                             "groups": {
                                                 "Application": {
                                                     "groups": {
-                                                        "Org1MSP": {
+                                                        "UdimaMSP": {
                                                             "groups": {},
                                                             "mod_policy": "",
                                                             "policies": {},
                                                             "values": {},
                                                             "version": "0"
                                                         },
-                                                        "Org2MSP": {
+                                                        "MinisterioMSP": {
                                                             "groups": {},
                                                             "mod_policy": "",
                                                             "policies": {},
@@ -873,14 +873,14 @@
                                             "groups": {
                                                 "Application": {
                                                     "groups": {
-                                                        "Org1MSP": {
+                                                        "UdimaMSP": {
                                                             "groups": {},
                                                             "mod_policy": "",
                                                             "policies": {},
                                                             "values": {},
                                                             "version": "0"
                                                         },
-                                                        "Org2MSP": {
+                                                        "MinisterioMSP": {
                                                             "groups": {},
                                                             "mod_policy": "",
                                                             "policies": {},
@@ -980,7 +980,7 @@
                                             "signature_header": {
                                                 "creator": {
                                                     "id_bytes": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNLakNDQWRDZ0F3SUJBZ0lSQU5pOHlOZ2RDS3VZOElGUCtDdnE4Y3d3Q2dZSUtvWkl6ajBFQXdJd2N6RUwKTUFrR0ExVUVCaE1DVlZNeEV6QVJCZ05WQkFnVENrTmhiR2xtYjNKdWFXRXhGakFVQmdOVkJBY1REVk5oYmlCRwpjbUZ1WTJselkyOHhHVEFYQmdOVkJBb1RFRzl5WnpFdVpYaGhiWEJzWlM1amIyMHhIREFhQmdOVkJBTVRFMk5oCkxtOXlaekV1WlhoaGJYQnNaUzVqYjIwd0hoY05NakF3TkRJeU1UYzFNakF3V2hjTk16QXdOREl3TVRjMU1qQXcKV2pCck1Rc3dDUVlEVlFRR0V3SlZVekVUTUJFR0ExVUVDQk1LUTJGc2FXWnZjbTVwWVRFV01CUUdBMVVFQnhNTgpVMkZ1SUVaeVlXNWphWE5qYnpFT01Bd0dBMVVFQ3hNRllXUnRhVzR4SHpBZEJnTlZCQU1NRmtGa2JXbHVRRzl5Clp6RXVaWGhoYlhCc1pTNWpiMjB3V1RBVEJnY3Foa2pPUFFJQkJnZ3Foa2pPUFFNQkJ3TkNBQVJvenh6TTFGMkMKa1dNcGlhSURrM016d3liVWt4YmxwMjcyeEpKMWRYckxxRUFjNXk1Z0toRldLek9aaXVTRU5aN0txWDM3eDU1QQpvaVdQNHQzbXR6VFdvMDB3U3pBT0JnTlZIUThCQWY4RUJBTUNCNEF3REFZRFZSMFRBUUgvQkFJd0FEQXJCZ05WCkhTTUVKREFpZ0NEOTB6OUF2djBOVzV2dDQ5NHRMMHlQZTRnS1Z5WDBxUmMxbC8rRFVpVDhVakFLQmdncWhrak8KUFFRREFnTklBREJGQWlFQWlLaGdIL3NlYmxHc0tzQis4dkVIS3VVeUlFVEduWWZjMU5odDN5ZDhZaVlDSUVRSQpqaVEwWkw2bzY5RWk0cE90MkptSks4YTBQM1dmMkJvaDFMeWFULzdtCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K",
-                                                    "mspid": "Org1MSP"
+                                                    "mspid": "UdimaMSP"
                                                 },
                                                 "nonce": "jSDYUPHVaKlDZlSWzAqVGv1Ycdft2Qm2"
                                             }
@@ -1001,7 +1001,7 @@
                                     "signature_header": {
                                         "creator": {
                                             "id_bytes": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUNLakNDQWRDZ0F3SUJBZ0lSQU5pOHlOZ2RDS3VZOElGUCtDdnE4Y3d3Q2dZSUtvWkl6ajBFQXdJd2N6RUwKTUFrR0ExVUVCaE1DVlZNeEV6QVJCZ05WQkFnVENrTmhiR2xtYjNKdWFXRXhGakFVQmdOVkJBY1REVk5oYmlCRwpjbUZ1WTJselkyOHhHVEFYQmdOVkJBb1RFRzl5WnpFdVpYaGhiWEJzWlM1amIyMHhIREFhQmdOVkJBTVRFMk5oCkxtOXlaekV1WlhoaGJYQnNaUzVqYjIwd0hoY05NakF3TkRJeU1UYzFNakF3V2hjTk16QXdOREl3TVRjMU1qQXcKV2pCck1Rc3dDUVlEVlFRR0V3SlZVekVUTUJFR0ExVUVDQk1LUTJGc2FXWnZjbTVwWVRFV01CUUdBMVVFQnhNTgpVMkZ1SUVaeVlXNWphWE5qYnpFT01Bd0dBMVVFQ3hNRllXUnRhVzR4SHpBZEJnTlZCQU1NRmtGa2JXbHVRRzl5Clp6RXVaWGhoYlhCc1pTNWpiMjB3V1RBVEJnY3Foa2pPUFFJQkJnZ3Foa2pPUFFNQkJ3TkNBQVJvenh6TTFGMkMKa1dNcGlhSURrM016d3liVWt4YmxwMjcyeEpKMWRYckxxRUFjNXk1Z0toRldLek9aaXVTRU5aN0txWDM3eDU1QQpvaVdQNHQzbXR6VFdvMDB3U3pBT0JnTlZIUThCQWY4RUJBTUNCNEF3REFZRFZSMFRBUUgvQkFJd0FEQXJCZ05WCkhTTUVKREFpZ0NEOTB6OUF2djBOVzV2dDQ5NHRMMHlQZTRnS1Z5WDBxUmMxbC8rRFVpVDhVakFLQmdncWhrak8KUFFRREFnTklBREJGQWlFQWlLaGdIL3NlYmxHc0tzQis4dkVIS3VVeUlFVEduWWZjMU5odDN5ZDhZaVlDSUVRSQpqaVEwWkw2bzY5RWk0cE90MkptSks4YTBQM1dmMkJvaDFMeWFULzdtCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K",
-                                            "mspid": "Org1MSP"
+                                            "mspid": "UdimaMSP"
                                         },
                                         "nonce": "xuFkGfNRFtONZmLsPNYKbW8JBBUMJ8+t"
                                     }

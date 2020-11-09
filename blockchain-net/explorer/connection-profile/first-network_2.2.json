@@ -11,10 +11,10 @@
 		"adminCredential": {
 			"id": "exploreradmin",
 			"password": "exploreradminpw",
-			"affiliation": "org1.department1"
+			"affiliation": "udima.department1"
 		},
 		"enableAuthentication": true,
-		"organization": "Org1MSP",
+		"organization": "UdimaMSP",
 		"connection": {
 			"timeout": {
 				"peer": {
@@ -27,7 +27,7 @@
 	"channels": {
 		"mychannel": {
 			"peers": {
-				"peer0.org1.example.com": {}
+				"peer0.udima.example.com": {}
 			},
 			"connection": {
 				"timeout": {
@@ -41,28 +41,28 @@
 		}
 	},
 	"organizations": {
-		"Org1MSP": {
-			"mspid": "Org1MSP",
+		"UdimaMSP": {
+			"mspid": "UdimaMSP",
 			"adminPrivateKey": {
-				"path": "/etc/data/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/priv_sk"
+				"path": "/etc/data/peerOrganizations/udima.example.com/users/Admin@udima.example.com/msp/keystore/priv_sk"
 			},
 			"peers": [
-				"peer0.org1.example.com"
+				"peer0.udima.example.com"
 			],
 			"signedCert": {
-				"path": "/etc/data/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem"
+				"path": "/etc/data/peerOrganizations/udima.example.com/users/Admin@udima.example.com/msp/signcerts/Admin@udima.example.com-cert.pem"
 			}
 		}
 	},
 	"peers": {
-		"peer0.org1.example.com": {
+		"peer0.udima.example.com": {
 			"tlsCACerts": {
-				"path": "/etc/data/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt"
+				"path": "/etc/data/peerOrganizations/udima.example.com/peers/peer0.udima.example.com/tls/ca.crt"
 			},
-			"url": "grpcs://peer0.org1.example.com:7051",
-			"eventUrl": "grpcs://peer0.org1.example.com:7053",
+			"url": "grpcs://peer0.udima.example.com:7051",
+			"eventUrl": "grpcs://peer0.udima.example.com:7053",
 			"grpcOptions": {
-				"ssl-target-name-override": "peer0.org1.example.com"
+				"ssl-target-name-override": "peer0.udima.example.com"
 			}
 		}
 	}

@@ -107,10 +107,10 @@ dist
 .vscode-test
 
 artifacts/channel/mychannel.tx
-artifacts/channel/Org1MSPanchors.tx
-artifacts/channel/Org2MSPanchors.tx
+artifacts/channel/UdimaMSPanchors.tx
+artifacts/channel/MinisterioMSPanchors.tx
 artifacts/channel/crypto-config/
-fabric-client-kv-org1
+fabric-client-kv-udima
 /package-lock.json
 crypto/*
 
@@ -119,7 +119,7 @@ artifacts/src/github.com/pkg
 artifacts/src/github.com/hyperledger
 artifacts/src/github.com/fabcar/go/vendor
 artifacts/src/github.com/fabcar/go/go.sum
-crypto/fabric-client-kv-org1
+crypto/fabric-client-kv-udima
 fabcar.tar.gz
 exam_auditter.tar.gz
 artifacts/src/github.com/fabcar_contract_api/go/vendor
@@ -144,8 +144,8 @@ config_update_in_envelope.pb
 config.pb
 org4consenter.json
 addOrg3/scripts/channel-artifacts/mychannel.block
-back/org1-wallet
-back/org2-wallet
+back/udima-wallet
+back/ministerio-wallet
 artifacts/channel/create-certificate-with-ca/crypto-config-ca
 artifacts/channel/create-certificate-with-ca/fabric-ca
 artifacts/channel

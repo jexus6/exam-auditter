@@ -13,4 +13,4 @@ sleep 2
 
 sleep 20
 
-docker-compose -f ./explorer/docker-compose.yaml up -d 
+#docker-compose -f ./explorer/docker-compose.yaml up -d 

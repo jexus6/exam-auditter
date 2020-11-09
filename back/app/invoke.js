@@ -21,7 +21,7 @@ const invokeTransaction = async (channelName, chaincodeName, fcn, args, username
         logger.debug(util.format('\n============ invoke transaction on channel %s ============\n', channelName));
 
         // load the network configuration
-        // const ccpPath =path.resolve(__dirname, '..', 'config', 'connection-org1.json');
+        // const ccpPath =path.resolve(__dirname, '..', 'config', 'connection-udima.json');
         // const ccpJSON = fs.readFileSync(ccpPath, 'utf8')
         const ccp = await helper.getCCP(org_name) //JSON.parse(ccpJSON);
 
@@ -64,8 +64,8 @@ const invokeTransaction = async (channelName, chaincodeName, fcn, args, username
 
         let result
         let message;
-        if (fcn === "createCar" || fcn === "createPrivateCarImplicitForOrg1"
-            || fcn == "createPrivateCarImplicitForOrg2") {
+        if (fcn === "createCar" || fcn === "createPrivateCarImplicitForUdima"
+            || fcn == "createPrivateCarImplicitForMinisterio") {
             result = await contract.submitTransaction(fcn, args[0], args[1], args[2], args[3], args[4]);
             message = `Successfully added the car asset with key ${args[0]}`
 

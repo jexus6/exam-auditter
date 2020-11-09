@@ -29,10 +29,10 @@ OrdererOrgs:
 # ---------------------------------------------------------------------------
 PeerOrgs:
   # ---------------------------------------------------------------------------
-  # Org1
+  # Udima
   # ---------------------------------------------------------------------------
-  - Name: Org1
-    Domain: org1.example.com
+  - Name: Udima
+    Domain: udima.example.com
     EnableNodeOUs: true
 
     Template:
@@ -45,8 +45,8 @@ PeerOrgs:
     Users:
       Count: 1
 
-  - Name: Org2
-    Domain: org2.example.com
+  - Name: Ministerio
+    Domain: ministerio.example.com
     EnableNodeOUs: true
 
     Template:

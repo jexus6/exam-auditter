@@ -1,22 +1,22 @@
 ---
-name: first-network-org2
+name: first-network-ministerio
 version: 1.0.0
 client:
-  organization: Org2
+  organization: Ministerio
   connection:
     timeout:
       peer:
         endorser: '300'
 organizations:
-  Org2:
-    mspid: Org2MSP
+  Ministerio:
+    mspid: MinisterioMSP
     peers:
-    - peer0.org2.example.com
-    - peer1.org2.example.com
+    - peer0.ministerio.example.com
+    - peer1.ministerio.example.com
     certificateAuthorities:
-    - ca.org2.example.com
+    - ca.ministerio.example.com
 peers:
-  peer0.org2.example.com:
+  peer0.ministerio.example.com:
     url: grpcs://localhost:9051
     tlsCACerts:
       pem: |
@@ -37,9 +37,9 @@ peers:
         -----END CERTIFICATE-----
         
     grpcOptions:
-      ssl-target-name-override: peer0.org2.example.com
-      hostnameOverride: peer0.org2.example.com
-  peer1.org2.example.com:
+      ssl-target-name-override: peer0.ministerio.example.com
+      hostnameOverride: peer0.ministerio.example.com
+  peer1.ministerio.example.com:
     url: grpcs://localhost:10051
     tlsCACerts:
       pem: |
@@ -60,12 +60,12 @@ peers:
         -----END CERTIFICATE-----
         
     grpcOptions:
-      ssl-target-name-override: peer1.org2.example.com
-      hostnameOverride: peer1.org2.example.com
+      ssl-target-name-override: peer1.ministerio.example.com
+      hostnameOverride: peer1.ministerio.example.com
 certificateAuthorities:
-  ca.org2.example.com:
+  ca.ministerio.example.com:
     url: https://localhost:8054
-    caName: ca-org2
+    caName: ca-ministerio
     tlsCACerts:
       pem: |
         -----BEGIN CERTIFICATE-----

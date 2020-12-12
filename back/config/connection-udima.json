@@ -1,0 +1,60 @@
+{
+    "name": "first-network-udima",
+    "version": "1.0.0",
+    "client": {
+        "organization": "Udima",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                }
+            }
+        }
+    },
+    "organizations": {
+        "Udima": {
+            "mspid": "UdimaMSP",
+            "peers": [
+                "peer0.udima.example.com",
+                "peer1.udima.example.com"
+            ],
+            "certificateAuthorities": [
+                "ca.udima.example.com"
+            ]
+        }
+    },
+    "peers": {
+        "peer0.udima.example.com": {
+            "url": "grpcs://localhost:7051",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICXDCCAgGgAwIBAgIQS9xUigVvcx2I7lGpDalTUDAKBggqhkjOPQQDAjB4MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEaMBgGA1UEChMRdWRpbWEuZXhhbXBsZS5jb20xIDAeBgNVBAMTF3Rs\nc2NhLnVkaW1hLmV4YW1wbGUuY29tMB4XDTIwMTEwOTEwNTAwMFoXDTMwMTEwNzEw\nNTAwMFoweDELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNV\nBAcTDVNhbiBGcmFuY2lzY28xGjAYBgNVBAoTEXVkaW1hLmV4YW1wbGUuY29tMSAw\nHgYDVQQDExd0bHNjYS51ZGltYS5leGFtcGxlLmNvbTBZMBMGByqGSM49AgEGCCqG\nSM49AwEHA0IABMGVAB6dsqasaVEOhHYCAg5Z7OoSt8UWrZ17T/iq6cypWTPmgpTL\nxG47mxf/HoWWfka3LzWR1pY/ej6sPxFx+PijbTBrMA4GA1UdDwEB/wQEAwIBpjAd\nBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwEwDwYDVR0TAQH/BAUwAwEB/zAp\nBgNVHQ4EIgQgSQul5QXlE/jG3Jjs0Ia6cKUcC0cd2COWzTuWQ5wqlYMwCgYIKoZI\nzj0EAwIDSQAwRgIhAPLOPgW2Dt8y2z3VVz+wkTFZk36zWV8jFYA7ijpudTZjAiEA\ng/t1e/OfOENjR2moGIzE4CD2B6pA0k2Pb/lICXJPOdQ=\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.udima.example.com",
+                "hostnameOverride": "peer0.udima.example.com"
+            }
+        },
+        "peer1.udima.example.com": {
+            "url": "grpcs://localhost:8051",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICXDCCAgGgAwIBAgIQS9xUigVvcx2I7lGpDalTUDAKBggqhkjOPQQDAjB4MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEaMBgGA1UEChMRdWRpbWEuZXhhbXBsZS5jb20xIDAeBgNVBAMTF3Rs\nc2NhLnVkaW1hLmV4YW1wbGUuY29tMB4XDTIwMTEwOTEwNTAwMFoXDTMwMTEwNzEw\nNTAwMFoweDELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNV\nBAcTDVNhbiBGcmFuY2lzY28xGjAYBgNVBAoTEXVkaW1hLmV4YW1wbGUuY29tMSAw\nHgYDVQQDExd0bHNjYS51ZGltYS5leGFtcGxlLmNvbTBZMBMGByqGSM49AgEGCCqG\nSM49AwEHA0IABMGVAB6dsqasaVEOhHYCAg5Z7OoSt8UWrZ17T/iq6cypWTPmgpTL\nxG47mxf/HoWWfka3LzWR1pY/ej6sPxFx+PijbTBrMA4GA1UdDwEB/wQEAwIBpjAd\nBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwEwDwYDVR0TAQH/BAUwAwEB/zAp\nBgNVHQ4EIgQgSQul5QXlE/jG3Jjs0Ia6cKUcC0cd2COWzTuWQ5wqlYMwCgYIKoZI\nzj0EAwIDSQAwRgIhAPLOPgW2Dt8y2z3VVz+wkTFZk36zWV8jFYA7ijpudTZjAiEA\ng/t1e/OfOENjR2moGIzE4CD2B6pA0k2Pb/lICXJPOdQ=\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer1.udima.example.com",
+                "hostnameOverride": "peer1.udima.example.com"
+            }
+        }
+    },
+    "certificateAuthorities": {
+        "ca.udima.example.com": {
+            "url": "https://localhost:7054",
+            "caName": "ca.udima.example.com",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICXDCCAgGgAwIBAgIQS9xUigVvcx2I7lGpDalTUDAKBggqhkjOPQQDAjB4MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEaMBgGA1UEChMRdWRpbWEuZXhhbXBsZS5jb20xIDAeBgNVBAMTF3Rs\nc2NhLnVkaW1hLmV4YW1wbGUuY29tMB4XDTIwMTEwOTEwNTAwMFoXDTMwMTEwNzEw\nNTAwMFoweDELMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNV\nBAcTDVNhbiBGcmFuY2lzY28xGjAYBgNVBAoTEXVkaW1hLmV4YW1wbGUuY29tMSAw\nHgYDVQQDExd0bHNjYS51ZGltYS5leGFtcGxlLmNvbTBZMBMGByqGSM49AgEGCCqG\nSM49AwEHA0IABMGVAB6dsqasaVEOhHYCAg5Z7OoSt8UWrZ17T/iq6cypWTPmgpTL\nxG47mxf/HoWWfka3LzWR1pY/ej6sPxFx+PijbTBrMA4GA1UdDwEB/wQEAwIBpjAd\nBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwEwDwYDVR0TAQH/BAUwAwEB/zAp\nBgNVHQ4EIgQgSQul5QXlE/jG3Jjs0Ia6cKUcC0cd2COWzTuWQ5wqlYMwCgYIKoZI\nzj0EAwIDSQAwRgIhAPLOPgW2Dt8y2z3VVz+wkTFZk36zWV8jFYA7ijpudTZjAiEA\ng/t1e/OfOENjR2moGIzE4CD2B6pA0k2Pb/lICXJPOdQ=\n-----END CERTIFICATE-----\n"
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}

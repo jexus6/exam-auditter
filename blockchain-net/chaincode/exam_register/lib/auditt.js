@@ -39,13 +39,17 @@ class ExamContract extends Contract {
     doc.hash = hash;
     doc.signature = signature;
     doc.timeStamp = timeStamp;
-  
+    console.log('Registering  exam: ' + doc);
 
     let documentAsBytes = await ctx.stub.getState(hash);
     if (!documentAsBytes || documentAsBytes.length === 0) {
-      console.log('auditting ' + doc);
+      console.log('Exam registered' + doc);
       await ctx.stub.putState(hash, Buffer.from(JSON.stringify(doc)));
       console.log('Aditt finished');
+      return {
+        "exam": doc,
+        "txId": "" + ctx.stub.getTxID()
+    } 
     } else {
       throw new Error(`Exam with hash: ${hash} already exist`);
     }

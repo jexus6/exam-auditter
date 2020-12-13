@@ -9,12 +9,6 @@ const util = require('util')
 
 const helper = require('./helper')
 
-// const createTransactionEventHandler = (transactionId, network) => {
-//     /* Your implementation here */
-//     const mspId = network.getGateway().getIdentity().mspId;
-//     const myOrgPeers = network.getChannel().getEndorsers(mspId);
-//     return new MyTransactionEventHandler(transactionId, network, myOrgPeers);
-// }
 
 const invokeTransaction = async (channelName, chaincodeName, fcn, args, username, org_name, transientData) => {
     try {
@@ -64,28 +58,13 @@ const invokeTransaction = async (channelName, chaincodeName, fcn, args, username
 
         let result
         let message;
-        if (fcn === "createCar" || fcn === "createPrivateCarImplicitForUdima"
-            || fcn == "createPrivateCarImplicitForMinisterio") {
+        if (fcn === "createExam") {
+            console.log("PARAMS"+args[0], args[1], args[2], args[3], args[4]);
             result = await contract.submitTransaction(fcn, args[0], args[1], args[2], args[3], args[4]);
-            message = `Successfully added the car asset with key ${args[0]}`
+            message = `Successfully added the exam asset with key ${args[0]}`
 
-        } else if (fcn === "changeCarOwner") {
-            result = await contract.submitTransaction(fcn, args[0], args[1]);
-            message = `Successfully changed car owner with key ${args[0]}`
-        } else if (fcn == "createPrivateCar" || fcn =="updatePrivateData") {
-            console.log(`Transient data is : ${transientData}`)
-            let carData = JSON.parse(transientData)
-            console.log(`car data is : ${JSON.stringify(carData)}`)
-            let key = Object.keys(carData)[0]
-            const transientDataBuffer = {}
-            transientDataBuffer[key] = Buffer.from(JSON.stringify(carData.car))
-            result = await contract.createTransaction(fcn)
-                .setTransient(transientDataBuffer)
-                .submit()
-            message = `Successfully submitted transient data`
-        }
-        else {
-            return `Invocation require either createCar or changeCarOwner as function but got ${fcn}`
+        } else {
+            return `Invocation require createExam  as function but got ${fcn}`
         }
 
         await gateway.disconnect();

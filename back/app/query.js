@@ -22,6 +22,7 @@ const query = async (channelName, chaincodeName, args, fcn, username, org_name) 
         console.log(`Wallet path: ${walletPath}`);
 
         // Check to see if we've already enrolled the user.
+        console.log("USER: "+username);
         let identity = await wallet.get(username);
         if (!identity) {
             console.log(`An identity for the user ${username} does not exist in the wallet, so registering user`);
@@ -43,16 +44,8 @@ const query = async (channelName, chaincodeName, args, fcn, username, org_name) 
         // Get the contract from the network.
         const contract = network.getContract(chaincodeName);
         let result;
+        result = await contract.evaluateTransaction(fcn, args[0]);
 
-        if (fcn == "queryCar" || fcn =="queryCarsByOwner" || fcn == 'getHistoryForAsset' || fcn=='restictedMethod') {
-            result = await contract.evaluateTransaction(fcn, args[0]);
-
-        } else if (fcn == "readPrivateCar" || fcn == "queryPrivateDataHash"
-        || fcn == "collectionCarPrivateDetails") {
-            result = await contract.evaluateTransaction(fcn, args[0], args[1]);
-            // return result
-
-        }
         console.log(result)
         console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
 

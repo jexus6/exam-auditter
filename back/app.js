@@ -28,20 +28,20 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 // set secret variable
-app.set('secret', 'thisismysecret');
+/*app.set('secret', 'thisismysecret');
 app.use(expressJWT({
     secret: 'thisismysecret'
 }).unless({
     path: ['/users','/users/login']
 }));
-app.use(bearerToken());
+app.use(bearerToken());*/
 
 logger.level = 'debug';
 
 
 app.use((req, res, next) => {
     logger.debug('New req for %s', req.originalUrl);
-    if (req.originalUrl.indexOf('/users') >= 0 || req.originalUrl.indexOf('/users/login') >= 0) {
+   /* if (req.originalUrl.indexOf('/users') >= 0 || req.originalUrl.indexOf('/users/login') >= 0) {
         return next();
     }
     var token = req.token;
@@ -61,7 +61,8 @@ app.use((req, res, next) => {
             logger.debug(util.format('Decoded from JWT token: username - %s, orgname - %s', decoded.username, decoded.orgName));
             return next();
         }
-    });
+    });*/
+    return next();
 });
 
 var server = http.createServer(app).listen(port, function () { console.log(`Server started on ${port}`) });
@@ -178,7 +179,7 @@ app.post('/channels/:channelName/chaincodes/:chaincodeName', async function (req
             return;
         }
 
-        let message = await invoke.invokeTransaction(channelName, chaincodeName, fcn, args, req.username, req.orgname, transient);
+        let message = await invoke.invokeTransaction(channelName, chaincodeName, fcn, args, req.body.username, req.body.orgName, transient);
         console.log(`message result is : ${message}`)
 
         const response_payload = {
@@ -235,7 +236,7 @@ app.get('/channels/:channelName/chaincodes/:chaincodeName', async function (req,
         args = JSON.parse(args);
         logger.debug(args);
 
-        let message = await query.query(channelName, chaincodeName, args, fcn, req.username, req.orgname);
+        let message = await query.query(channelName, chaincodeName, args, fcn, req.query.username, req.query.orgName);
 
         const response_payload = {
             result: message,

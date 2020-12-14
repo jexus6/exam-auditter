@@ -18,6 +18,7 @@ const invokeTransaction = async (channelName, chaincodeName, fcn, args, username
         // const ccpPath =path.resolve(__dirname, '..', 'config', 'connection-udima.json');
         // const ccpJSON = fs.readFileSync(ccpPath, 'utf8')
         const ccp = await helper.getCCP(org_name) //JSON.parse(ccpJSON);
+        console.log(" debug ORG "+ org_name);
 
         // Create a new file system based wallet for managing identities.
         const walletPath = await helper.getWalletPath(org_name) //path.join(process.cwd(), 'wallet');

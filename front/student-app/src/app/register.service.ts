@@ -19,26 +19,30 @@ export class RegisterService {
 
   ) { }
 
-  newExam(
-    hashFile: string,
-    curse: string,
-    subject: string,
-    owner: string
+  newExam( args : string []
   ) {
-    const service: string = "/register";
-  
-    const examData = new FormData();
-    examData.append("hashFile", hashFile);
-    examData.append("curse", curse);
-    examData.append("subject", subject);
-    examData.append("owner", owner);
+    const service: string = "/channels/mychannel/chaincodes/exam_auditter";
+
+    const exam_data = {
+      "fcn": "createExam",
+      "username": "admin",
+      "orgName": "Udima",
+      "peers": [
+        "peer0.udima.example.com",
+        "peer0.ministerio.example.com"
+      ],
+      "chaincodeName": "ExamContract",
+      "channelName": "mychannel",
+      args
+    }
 
     this.http
-      .post<Response>(environment.apiExamAuditer + service, examData)
+      .post<Response>(environment.apiExamAuditer + service, exam_data)
       .subscribe(
         responseData => {
           console.log("RESPONSE DATA: ", responseData);
-          this.openDialog(responseData.data);         
+         this.openDialog(responseData.data);
+         return responseData;
         },
         error => {
           return this.documentError.next(false);
@@ -46,9 +50,26 @@ export class RegisterService {
       );
   }
 
+  getExam(hashExam : string 
+    ) {
+      const service: string = "/channels/mychannel/chaincodes/exam_auditter";
+       this.http
+        .get<Response>(environment.apiExamAuditer + service+"?args=[\""+hashExam+"\"]&peer=peer0.udima.example.com&fcn=getExam&username=admin&orgName=Udima")
+        .subscribe(
+          responseData => {
+            console.log("RESPONSE DATA: ", responseData);
+           this.openDialog(responseData.data);
+           return responseData;
+          },
+          error => {
+            return this.documentError.next(false);
+          }
+        );
+    }
+
   private openDialog(data: any): void {
     console.log(data);
-  
+
   }
 
 

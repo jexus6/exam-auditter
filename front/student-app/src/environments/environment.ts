@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiExamAuditer: 'http://localhost:3001'
+  apiExamAuditer: 'http://localhost:4000'
 };
 
 /*

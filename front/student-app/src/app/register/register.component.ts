@@ -1,9 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
 import { SHA256 } from "crypto-js";
-import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
-import {Router, ActivatedRoute} from '@angular/router'
+import {RegisterService} from './../register.service';
 
 
 @Component({
@@ -13,34 +12,26 @@ import {Router, ActivatedRoute} from '@angular/router'
 })
 export class RegisterComponent implements OnInit {
   private fileContent: string | ArrayBuffer;
-  constructor(private router: Router) { }
-
+  
+  constructor(private registerService: RegisterService) { }
+ 
   ngOnInit(): void {
 
   }
-  
-
+ 
   myForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    subject: new FormControl('', [Validators.required, Validators.minLength(3)]),
     file: new FormControl('', [Validators.required]),
     fileSource: new FormControl('', [Validators.required])
   });
-    
-
-      
+     
   get f(){
     return this.myForm.controls;
   }
      
   onFileChange(event) {
   
-    /*if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.myForm.patchValue({
-        fileSource: file
-      });
-    }*/
-
    const file = (event.target as HTMLInputElement).files[0];
     if (!file) {
       return;
@@ -52,28 +43,32 @@ export class RegisterComponent implements OnInit {
     reader.readAsBinaryString(file);
   }
 
-
-  submit(){
+  async submit(){
+    let args: string[] = new Array(5);
     const formData = new FormData();
     formData.append('file', this.myForm.get('fileSource').value);
-    console.log
+    
     console.log("HASH DEL FICHERO: "+this.calculateHash(this.fileContent));
+    args[0]= this.calculateHash(this.fileContent);
+    args[1]= this.myForm.get("name").value;
+    args[2]= this.myForm.get("subject").value;
+    args[3]= ""+Date.now();
+    args[4]= "XXXX";
    
-    /*this.http.post('http://localhost:8001/upload.php', formData)
-      .subscribe(res => {
-        console.log(res);
-        alert('Uploaded Successfully.');
-      })*/
+    const response = await this.registerService.newExam(args);
+
+    this.openDialog(response);
+
+  }
+
+  private openDialog(data: any): void {
+    console.log("RESPUESTA: "+ data);
+
   }
 
   private calculateHash(fileContent: string | ArrayBuffer) {
     return SHA256(fileContent).toString();
   }
- 
-  /*private sign(){
-    this.router.navigate(['/sign']);
-  }*/
-
 
 }
 

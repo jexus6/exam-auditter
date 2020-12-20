@@ -86,7 +86,7 @@ updateAnchorPeers(){
     
 }
 
-removeOldCrypto
+#removeOldCrypto
 echo "CREATE CHANNEL";
 createChannel
 echo "JOIN CHANNEL";

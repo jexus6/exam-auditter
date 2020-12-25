@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { SHA256 } from "crypto-js";
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import {RegisterService} from './../register.service';
+import {
+  Router
+} from '@angular/router';
 
 
 @Component({
@@ -12,8 +15,9 @@ import {RegisterService} from './../register.service';
 })
 export class RegisterComponent implements OnInit {
   private fileContent: string | ArrayBuffer;
+   data :{}; 
   
-  constructor(private registerService: RegisterService) { }
+  constructor(private registerService: RegisterService, private router: Router) { }
  
   ngOnInit(): void {
 
@@ -53,19 +57,20 @@ export class RegisterComponent implements OnInit {
     args[1]= this.myForm.get("name").value;
     args[2]= this.myForm.get("subject").value;
     args[3]= ""+Date.now();
-    args[4]= "XXXX";
+    args[4]= "";
    
     const response = await this.registerService.newExam(args);
-
-    this.openDialog(response);
-
-  }
-
-  private openDialog(data: any): void {
-    console.log("RESPUESTA: "+ data);
+    this.goCert(response);
 
   }
 
+    public goCert(data_response : any) {
+      this.router.navigate(['/cert', {
+        data: data_response
+      }])
+    }
+  
+ 
   private calculateHash(fileContent: string | ArrayBuffer) {
     return SHA256(fileContent).toString();
   }

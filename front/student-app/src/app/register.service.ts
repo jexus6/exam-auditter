@@ -12,7 +12,7 @@ import { Response } from "./response-model";
 })
 export class RegisterService {
   private documentError = new Subject<boolean>();
-
+data : {};
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -40,8 +40,12 @@ export class RegisterService {
       .post<Response>(environment.apiExamAuditer + service, exam_data)
       .subscribe(
         responseData => {
-          console.log("RESPONSE DATA: ", responseData);
-         this.openDialog(responseData.data);
+          let data2 : {} ;
+         data2 = responseData;
+     
+          console.log("RESPONSE message: "+data2["result"]["message"]);
+          console.log("RESPONSE DATA: "+JSON.stringify(responseData));
+         //this.openDialog(responseData.data);
          return responseData;
         },
         error => {
@@ -57,9 +61,10 @@ export class RegisterService {
         .get<Response>(environment.apiExamAuditer + service+"?args=[\""+hashExam+"\"]&peer=peer0.udima.example.com&fcn=getExam&username=admin&orgName=Udima")
         .subscribe(
           responseData => {
-            console.log("RESPONSE DATA: ", responseData);
-           this.openDialog(responseData.data);
-           return responseData;
+            this.data = responseData;
+            console.log("RESPONSE DATA: ", JSON.stringify(responseData));
+            
+           return this.data;
           },
           error => {
             return this.documentError.next(false);

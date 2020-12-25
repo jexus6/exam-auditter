@@ -1,0 +1,156 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin-top: 11%;
+  position: absolute;
+}
+
+ul {
+  text-align: left;
+}
+
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+header,footer
+{
+    background-color: #0033fc;
+    color: white;
+}
+
+image
+{
+    size: 50%;
+    opacity: 0.1;
+}
+.navbar
+{
+    background-color: #0033fc;
+    color: white;
+}
+.navbar.image
+{
+    size: 50%;
+}
+.containerTrabajos
+{
+    height: 1000px;
+}
+
+
+body
+{
+  margin-top: 11%;
+  position: absolute;
+  width: 100%;    
+
+}
+
+table{ 
+  font-size:11px;
+    position:absolute;
+    width: 100%;
+    left: -5%;
+    
+}
+
+#tabla2
+{
+    position:absolute;
+    margin-bottom: 5%;
+}
+
+tbody
+{
+    
+}
+
+th {
+  text-align: center; 
+}
+
+.form-control_hour {
+  display: block;
+  width: 100%;
+  height: calc(2.2em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 0.7rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.form-control {
+  display: block;
+  width: 125%;
+  /* height: calc(2.2em + .75rem + 2px); */
+  height: auto;
+  padding: .375rem .75rem;
+  font-size: 0.7rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.input-group-text {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: .375rem .75rem;
+  margin-bottom: 0;
+  font-size: 0.7rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  
+}
+
+

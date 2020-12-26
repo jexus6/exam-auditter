@@ -1,2 +1,2 @@
 Installed chaincodes on peer:
-Package ID: exam_auditter_1:63d910ec4b57a574e60192522ad6159120f27e898078905dbbd197082744efd8, Label: exam_auditter_1
+Package ID: exam_auditter_1:170e0886f835491da4bfeb409e3b766f90d85f24ba4042fcd04f0839983e22d1, Label: exam_auditter_1

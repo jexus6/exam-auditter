@@ -12,18 +12,39 @@
             </div>
             <div class="col-md-4">
              
-              <button type="button" class="btn btn-primary" (click)="backtoRegister()"> Registrar otro Examen </button>
+           
             </div>
           </div>
         </div>
  <br>
  <br>
  
-  
+ 
     <div class="container" id="contAll">
       <div id="titulo">
-        <h2 style="text-align: center;">EXAMEN REGISTRADO</h2>
+        <h2 style="text-align: center;">EXAMEN REGISTRADO </h2>
       </div>
+      <div id="titulo">
+        <h3 style="text-align: center;">Ingeniería de Tecnologías y Servicios de Telecomunicación </h3>
+      </div>
+    <br>
+      <div class="titulo">
+        <span><b>Alumno: &nbsp;</b>{{ exam_data.name }}</span>
+      </div>
+      <div class="titulo">
+        <span><b>Asignatura: &nbsp;</b>{{ exam_data.subject }}</span>
+      </div>
+      <div class="titulo">
+        <span><b>Firma del examen: &nbsp;</b> {{ exam_data.hash }}</span>
+      </div>
+      <div class="titulo">
+        <span><b>Fecha de registro: &nbsp;</b>{{ exam_data.timeStamp | date:'M/d/yy, h:mm a'}}</span>
+      </div>
+      <div class="titulo">
+        <span><b>Firma de la transacción: &nbsp;</b>{{ exam_data.txId}}</span>
+      </div>
+
+ 
       <br>
       <div> <button type="button" class="btn btn-success" (click)="generatePDF()">Descargar PDF</button></div>
       <br>

@@ -5,6 +5,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Router } from "@angular/router";
 
 import { Response } from "./response-model";
+import { newArray } from '@angular/compiler/src/util';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 
 @Injectable({
@@ -19,8 +21,9 @@ data : {};
 
   ) { }
 
-  newExam( args : string []
-  ) {
+  async newExam( args : string []
+  ) : Promise<any> {
+    
     const service: string = "/channels/mychannel/chaincodes/exam_auditter";
 
     const exam_data = {
@@ -36,46 +39,17 @@ data : {};
       args
     }
 
-    this.http
-      .post<Response>(environment.apiExamAuditer + service, exam_data)
-      .subscribe(
-        responseData => {
-          let data2 : {} ;
-         data2 = responseData;
+   return await this.http
+      .post<Response>(environment.apiExamAuditer + service, exam_data).toPromise();
      
-          console.log("RESPONSE message: "+data2["result"]["message"]);
-          console.log("RESPONSE DATA: "+JSON.stringify(responseData));
-         //this.openDialog(responseData.data);
-         return responseData;
-        },
-        error => {
-          return this.documentError.next(false);
-        }
-      );
   }
 
-  getExam(hashExam : string 
-    ) {
+  async getExam(hashExam : string 
+    ): Promise<any> {
       const service: string = "/channels/mychannel/chaincodes/exam_auditter";
-       this.http
-        .get<Response>(environment.apiExamAuditer + service+"?args=[\""+hashExam+"\"]&peer=peer0.udima.example.com&fcn=getExam&username=admin&orgName=Udima")
-        .subscribe(
-          responseData => {
-            this.data = responseData;
-            console.log("RESPONSE DATA: ", JSON.stringify(responseData));
-            
-           return this.data;
-          },
-          error => {
-            return this.documentError.next(false);
-          }
-        );
+      return await this.http
+        .get<Response>(environment.apiExamAuditer + service+"?args=[\""+hashExam+"\"]&peer=peer0.udima.example.com&fcn=getExam&username=admin&orgName=Udima").toPromise();
+      
     }
-
-  private openDialog(data: any): void {
-    console.log(data);
-
-  }
-
-
+ 
 }

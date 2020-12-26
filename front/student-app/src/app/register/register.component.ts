@@ -6,7 +6,7 @@ import {RegisterService} from './../register.service';
 import {
   Router
 } from '@angular/router';
-
+import { Subject } from "rxjs";
 
 @Component({
   selector: 'app-register',
@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
    data :{}; 
   
   constructor(private registerService: RegisterService, private router: Router) { }
- 
+  private documentError = new Subject<boolean>();
   ngOnInit(): void {
 
   }
@@ -59,14 +59,15 @@ export class RegisterComponent implements OnInit {
     args[3]= ""+Date.now();
     args[4]= "";
    
-    const response = await this.registerService.newExam(args);
-    this.goCert(response);
+     let createResponse = await this.registerService.newExam(args);
+     localStorage.setItem('txId',createResponse["result"]["result"]["txId"]);
+     this.goCert(createResponse["result"]["result"]["exam"]["hash"]);
 
   }
 
-    public goCert(data_response : any) {
+    public goCert(hash : string) {
       this.router.navigate(['/cert', {
-        data: data_response
+        id: hash
       }])
     }
   

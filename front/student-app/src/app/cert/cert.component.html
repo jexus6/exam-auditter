@@ -22,11 +22,18 @@
  
     <div class="container" id="contAll">
       <div id="titulo">
-        <h2 style="text-align: center;">EXAMEN REGISTRADO </h2>
+        <h2 style="text-align: center;">EXAMEN REGISTRADO EN BLOKCHAIN</h2>
       </div>
       <div id="titulo">
+        <h4 style="text-align: center;">RED UNIVERSIDADES - MINISTERIO </h4>
+      </div>
+      <br>
+      <img class="rounded mx-auto d-block"  src="assets/image/escudo_teleco.png" alt="Card image cap">
+     <br>
+      <div id="titulo2">
         <h3 style="text-align: center;">Ingeniería de Tecnologías y Servicios de Telecomunicación </h3>
       </div>
+    <br>
     <br>
       <div class="titulo">
         <span><b>Alumno: &nbsp;</b>{{ exam_data.name }}</span>
@@ -43,14 +50,14 @@
       <div class="titulo">
         <span><b>Firma de la transacción: &nbsp;</b>{{ exam_data.txId}}</span>
       </div>
-
+    </div>
  
       <br>
-      <div> <button type="button" class="btn btn-success" (click)="generatePDF()">Descargar PDF</button></div>
+      <div> <button type="button" class="btn btn-primary" (click)="generatePDF()">Descargar PDF</button></div>
       <br>
       <br>
       
          
   
-    </div>
+
   

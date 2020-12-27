@@ -6,6 +6,11 @@ import {
 import { Exam } from '../exam-model';
 import {RegisterService} from './../register.service';
 
+import html2canvas from 'html2canvas';
+import {
+  jsPDF
+} from 'jspdf';
+
 
 @Component({
   selector: 'app-cert',
@@ -44,6 +49,32 @@ export class CertComponent implements OnInit {
     this.router.navigate(['/register']);
   }
 
-  generatePDF(){}
+  generatePDF(){
+    var data = document.getElementById('contAll'); //Id of the table
+    html2canvas(data).then(canvas => {
+      // Few necessary setting options  
+      let imgWidth = 208;
+      let pageHeight = 294;
+      let imgHeight = canvas.height * imgWidth / canvas.width;
+      let heightLeft = imgHeight;
+
+      const contentDataURL = canvas.toDataURL('image/png')
+      let pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF  
+      let position = 5;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+
+      heightLeft -= pageHeight;
+
+      while (heightLeft >= 0) {
+        position += heightLeft - imgHeight; // top padding for other pages
+        pdf.addPage();
+        pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+      }
+
+      pdf.save('certificado_registro_blockchain_examen_' +  this.exam_data.name + '.pdf'); // Generated PDF   
+    });
+
+  }
 
 }

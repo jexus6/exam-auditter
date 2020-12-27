@@ -52,7 +52,7 @@ export class CheckComponent implements OnInit {
   }
 
   private openDialog(data: any): void {
-    console.log("RESPUESTA: "+ data);
+    console.log("RESPUESTA: "+JSON.stringify(data));
 
   }
 

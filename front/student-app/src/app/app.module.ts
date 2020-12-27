@@ -11,13 +11,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CertComponent } from './cert/cert.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     CheckComponent,
-    CertComponent
+    CertComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

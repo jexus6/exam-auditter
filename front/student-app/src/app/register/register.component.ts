@@ -7,6 +7,7 @@ import {
   Router
 } from '@angular/router';
 import { Subject } from "rxjs";
+import { allowedNodeEnvironmentFlags } from 'process';
 
 @Component({
   selector: 'app-register',
@@ -16,6 +17,7 @@ import { Subject } from "rxjs";
 export class RegisterComponent implements OnInit {
   private fileContent: string | ArrayBuffer;
    data :{}; 
+   fileHash: string;
   
   constructor(private registerService: RegisterService, private router: Router) { }
   private documentError = new Subject<boolean>();
@@ -51,18 +53,23 @@ export class RegisterComponent implements OnInit {
     let args: string[] = new Array(5);
     const formData = new FormData();
     formData.append('file', this.myForm.get('fileSource').value);
-    
-    console.log("HASH DEL FICHERO: "+this.calculateHash(this.fileContent));
-    args[0]= this.calculateHash(this.fileContent);
+    this.fileHash =this.calculateHash(this.fileContent);
+    console.log("HASH DEL FICHERO: "+this.fileHash);
+    args[0]= this.fileHash;
     args[1]= this.myForm.get("name").value;
     args[2]= this.myForm.get("subject").value;
     args[3]= ""+Date.now();
     args[4]= "";
+
    
      let createResponse = await this.registerService.newExam(args);
+     console.log("register:"+ JSON.stringify(createResponse));
+     if ((typeof createResponse["result"] === 'string' || createResponse["result"] instanceof String )&& createResponse["result"].indexOf("already exist")!=-1){
+       this.goError(this.fileHash);
+     }else{
      localStorage.setItem('txId',createResponse["result"]["result"]["txId"]);
      this.goCert(createResponse["result"]["result"]["exam"]["hash"]);
-
+     }
   }
 
     public goCert(hash : string) {
@@ -71,6 +78,11 @@ export class RegisterComponent implements OnInit {
       }])
     }
   
+    public goError(hash : string) {
+      this.router.navigate(['/error', {
+        id: hash
+      }])
+    }
  
   private calculateHash(fileContent: string | ArrayBuffer) {
     return SHA256(fileContent).toString();

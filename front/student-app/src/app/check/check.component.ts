@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {RegisterService} from './../register.service';
 import { SHA256 } from "crypto-js";
 import { FormGroup, FormControl, Validators} from '@angular/forms';
+import {
+  Router
+} from '@angular/router';
 
 @Component({
   selector: 'app-check',
@@ -10,7 +13,7 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 })
 export class CheckComponent implements OnInit {
   private fileContent: string | ArrayBuffer;
-  constructor(private registerService: RegisterService) { }
+  constructor (private router: Router,private registerService: RegisterService) { }
 
   ngOnInit(): void {
   }
@@ -45,16 +48,28 @@ export class CheckComponent implements OnInit {
     
     console.log("HASH DEL FICHERO: "+this.calculateHash(this.fileContent));
     
-    const response = await this.registerService.getExam(this.calculateHash(this.fileContent));
+    const createResponse = await this.registerService.getExam(this.calculateHash(this.fileContent));
+    console.log("debug: "+JSON.stringify(createResponse));
+    if ((typeof createResponse["result"] === 'string' || createResponse["result"] instanceof String )&& createResponse["result"].indexOf("error")!=-1){
+      this.router.navigate(['/ko', {
+        id: ''
+      }]);
+    }else{
+    
+      localStorage.setItem('recordTime', createResponse["result"]["timeStamp"]);
+     
+      this.router.navigate(['/ok', {
+        id: createResponse["result"]["name"]
+      }]);
+    }
 
-    this.openDialog(response);
+    
+    
 
   }
 
-  private openDialog(data: any): void {
-    console.log("RESPUESTA: "+JSON.stringify(data));
+  
 
-  }
 
   private calculateHash(fileContent: string | ArrayBuffer) {
     return SHA256(fileContent).toString();

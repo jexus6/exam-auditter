@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CertComponent } from './cert/cert.component';
 import { ErrorComponent } from './error/error.component';
+import { CheckOkComponent } from './check-ok/check-ok.component';
+import { CheckKoComponent } from './check-ko/check-ko.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ErrorComponent } from './error/error.component';
     RegisterComponent,
     CheckComponent,
     CertComponent,
-    ErrorComponent
+    ErrorComponent,
+    CheckOkComponent,
+    CheckKoComponent
   ],
   imports: [
     BrowserModule,

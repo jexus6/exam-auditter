@@ -22,7 +22,7 @@
  
     <div class="container" id="contAll">
       <div id="titulo">
-        <h2 style="text-align: center;">EXAMEN REGISTRADO EN BLOKCHAIN</h2>
+        <h2 style="text-align: center;">EXAMEN REGISTRADO EN BLOCKCHAIN</h2>
       </div>
       <div id="titulo">
         <h4 style="text-align: center;">RED UNIVERSIDADES - MINISTERIO </h4>
@@ -45,7 +45,7 @@
         <span><b>Firma del examen: &nbsp;</b> {{ exam_data.hash }}</span>
       </div>
       <div class="titulo">
-        <span><b>Fecha de registro: &nbsp;</b>{{ exam_data.timeStamp | date:'M/d/yy, h:mm a'}}</span>
+        <span><b>Fecha de registro: &nbsp;</b>{{ exam_data.timeStamp | date:'d/M/yy, h:mm a'}}</span>
       </div>
       <div class="titulo">
         <span><b>Firma de la transacción: &nbsp;</b>{{ exam_data.txId}}</span>

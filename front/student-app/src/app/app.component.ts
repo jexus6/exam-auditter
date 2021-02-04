@@ -8,7 +8,7 @@ import { faPlus, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Registro de examenes en';
+  title = 'Registro de exámenes en Blockchain';
   faPlus = faPlus;
   faCheckCircle  = faCheckCircle;
 }

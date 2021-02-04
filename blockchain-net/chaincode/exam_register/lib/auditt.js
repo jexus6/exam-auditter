@@ -1,5 +1,5 @@
 /*
- * BIM Document Contract
+ * Exam Contract
  */
 
 'use strict';

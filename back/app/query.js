@@ -12,12 +12,10 @@ const query = async (channelName, chaincodeName, args, fcn, username, org_name) 
     try {
 
         // load the network configuration
-        // const ccpPath = path.resolve(__dirname, '..', 'config', 'connection-udima.json');
-        // const ccpJSON = fs.readFileSync(ccpPath, 'utf8')
-        const ccp = await helper.getCCP(org_name) //JSON.parse(ccpJSON);
+        const ccp = await helper.getCCP(org_name);
 
         // Create a new file system based wallet for managing identities.
-        const walletPath = await helper.getWalletPath(org_name) //.join(process.cwd(), 'wallet');
+        const walletPath = await helper.getWalletPath(org_name);
         const wallet = await Wallets.newFileSystemWallet(walletPath);
         console.log(`Wallet path: ${walletPath}`);
 
@@ -25,10 +23,10 @@ const query = async (channelName, chaincodeName, args, fcn, username, org_name) 
         console.log("USER: "+username);
         let identity = await wallet.get(username);
         if (!identity) {
-            console.log(`An identity for the user ${username} does not exist in the wallet, so registering user`);
+            console.log(`User ${username} has no wallet`);
             await helper.getRegisteredUser(username, org_name, true)
             identity = await wallet.get(username);
-            console.log('Run the registerUser.js application before retrying');
+            console.log('No user is registered');
             return;
         }
 
@@ -46,8 +44,7 @@ const query = async (channelName, chaincodeName, args, fcn, username, org_name) 
         let result;
         result = await contract.evaluateTransaction(fcn, args[0]);
 
-        console.log(result)
-        console.log(`Transaction has been evaluated, result is: ${result.toString()}`);
+        console.log(`Transaction done: ${result.toString()}`);
 
         result = JSON.parse(result.toString());
         return result

@@ -24,7 +24,7 @@ POST {{base_url}}/users
 Content-Type: application/json
 
 {
-    "username": "Pavan",
+    "username": "jf",
     "orgName": "Udima"
 }
 

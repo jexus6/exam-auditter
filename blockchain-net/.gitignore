@@ -117,13 +117,8 @@ crypto/*
 artifacts/src/github.com/golang
 artifacts/src/github.com/pkg
 artifacts/src/github.com/hyperledger
-artifacts/src/github.com/fabcar/go/vendor
-artifacts/src/github.com/fabcar/go/go.sum
 crypto/fabric-client-kv-udima
-fabcar.tar.gz
 exam_auditter.tar.gz
-artifacts/src/github.com/fabcar_contract_api/go/vendor
-artifacts/src/github.com/fabcar_contract_api/go/go.sum
 back/wallet
 channel-artifacts/mychannel.block
 addOrg3/crypto-config/peerOrganizations/org3.example.com

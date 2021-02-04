@@ -27,41 +27,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
-// set secret variable
-/*app.set('secret', 'thisismysecret');
-app.use(expressJWT({
-    secret: 'thisismysecret'
-}).unless({
-    path: ['/users','/users/login']
-}));
-app.use(bearerToken());*/
+
 
 logger.level = 'debug';
 
 
 app.use((req, res, next) => {
     logger.debug('New req for %s', req.originalUrl);
-   /* if (req.originalUrl.indexOf('/users') >= 0 || req.originalUrl.indexOf('/users/login') >= 0) {
-        return next();
-    }
-    var token = req.token;
-    jwt.verify(token, app.get('secret'), (err, decoded) => {
-        if (err) {
-            console.log(`Error ================:${err}`)
-            res.send({
-                success: false,
-                message: 'Failed to authenticate token. Make sure to include the ' +
-                    'token returned from /users call in the authorization header ' +
-                    ' as a Bearer token'
-            });
-            return;
-        } else {
-            req.username = decoded.username;
-            req.orgname = decoded.orgName;
-            logger.debug(util.format('Decoded from JWT token: username - %s, orgname - %s', decoded.username, decoded.orgName));
-            return next();
-        }
-    });*/
     return next();
 });
 
@@ -293,12 +265,6 @@ app.get('/qscc/channels/:channelName/chaincodes/:chaincodeName', async function 
         logger.debug(args);
 
         let response_payload = await qscc.qscc(channelName, chaincodeName, args, fcn, req.username, req.orgname);
-
-        // const response_payload = {
-        //     result: message,
-        //     error: null,
-        //     errorData: null
-        // }
 
         res.send(response_payload);
     } catch (error) {
